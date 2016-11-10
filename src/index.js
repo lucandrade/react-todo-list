@@ -11,7 +11,7 @@ const app = document.getElementById('root');
 ReactDOM.render(
   (
     <Router history={hashHistory}>
-      <Redirect from="/" to="/inline" />
+      <Redirect from="/" to="/local-storage" />
       <Route path="/" component={App}>
         <Route path="local-storage" component={LocalStorageExample} />
         <Route path="firebase" component={FirebaseExample} />
