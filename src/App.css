@@ -30,16 +30,14 @@
   display: inline-block;
 }
 
-.App-menu li ~ li {
-  padding-left: .5em;
-}
-
 .App-menu li a {
   color: #999999;
+  margin: .2em;
 }
 
 .App-menu li a:hover {
   text-decoration: none;
+  opacity: .7;
 }
 
 .App-menu li a.active {
