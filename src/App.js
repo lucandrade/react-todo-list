@@ -16,6 +16,7 @@ class App extends Component {
           </div>
         </div>
         <div className="container">
+          <pre>npm run eject</pre>
           {this.props.children}
         </div>
       </div>
