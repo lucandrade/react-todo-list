@@ -1,8 +1,6 @@
-'use strict';
-
 import React, { Component } from 'react';
 import Menu from './components/Menu';
-import logo from './logo.svg';
+import Todo from './components/Todo';
 import './App.css';
 
 class App extends Component {
@@ -16,8 +14,8 @@ class App extends Component {
           </div>
         </div>
         <div className="container">
-          <pre>npm run eject</pre>
           {this.props.children}
+          <Todo list={[]} />
         </div>
       </div>
     );
