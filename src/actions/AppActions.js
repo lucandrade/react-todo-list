@@ -15,3 +15,10 @@ export function addTodo(todo) {
 		todo
 	});
 }
+
+export function setStorage(storage) {
+	dispatcher.dispatch({
+		type: actions.setStorage,
+		storage
+	});
+}

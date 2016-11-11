@@ -50,3 +50,5 @@
   max-width: 600px;
   padding: 0 20px;
 }
+
+.todo-list .completed { color: blue; }

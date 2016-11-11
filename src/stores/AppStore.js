@@ -2,11 +2,14 @@ import { EventEmitter } from "events";
 import dispatcher from "../dispatcher";
 
 import Constants from '../constants/AppConstants';
+import Storage from '../storage';
 
 class AppStore extends EventEmitter {
     constructor() {
         super();
-        this.todoList = [];
+        this.storage = null;
+        this.setStorage('local');
+        this.todoList = Storage.get('todo') || [];
         this.showCompleted = false;
     }
 
@@ -17,6 +20,7 @@ class AppStore extends EventEmitter {
 
     addTodo(todo) {
     	this.todoList.push(todo);
+        Storage.set('todo', this.todoList);
     	this.emit('change');
     }
 
@@ -33,15 +37,28 @@ class AppStore extends EventEmitter {
     	return this.showCompleted;
     }
 
+    getStorage() {
+        return this.storage;
+    }
+
+    setStorage(storage) {
+        this.storage = storage;
+        Storage.updateClient(this.storage);
+        this.emit('change_storage');
+        this.emit('change');
+    }
+
     handleActions(action) {
     	const { actions } = Constants;
-    	console.log(action);
     	switch (action.type) {
             case actions.addTodo:
                 this.addTodo(action.todo);
                 break;
             case actions.toggleCompleted:
                 this.toggleCompleted();
+                break;
+            case actions.setStorage:
+                this.setStorage(action.storage);
                 break;
             default:
             	break;

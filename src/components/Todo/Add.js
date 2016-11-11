@@ -4,7 +4,8 @@ export default class TodoAdd extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const todo = document.getElementById('todo-input').value;
-		console.log('adicionar', todo);
+		this.props.onSubmit(todo);
+		document.getElementById('todo-input').value = '';
 	}
 
 	render() {

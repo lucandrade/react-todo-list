@@ -6,8 +6,9 @@ export default class TodoList extends React.Component {
 	render() {
 		const { list, showCompleted } = this.props;
 		let filteredList = showCompleted ? list : list.filter((item) => {
-			return item.completed
+			return !item.completed
 		});
+		
 		return (
 			<ul className='todo-list'>
 				{filteredList.length > 0 ? filteredList.map((item, i) => {

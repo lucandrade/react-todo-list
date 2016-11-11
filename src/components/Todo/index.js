@@ -8,11 +8,13 @@ export default class Index extends React.Component {
 	render() {
 		return (
 			<div className='todo'>
-				<TodoAdd />
+				<TodoAdd onSubmit={this.props.onAddTodo} />
 				<ShowCompleted
 					checked={this.props.showCompleted}
 					onChange={this.props.onShowCompletedChange} />
-				<TodoList list={this.props.list} />
+				<TodoList
+					list={this.props.list}
+					showCompleted={this.props.showCompleted} />
 			</div>
 		);
 	}

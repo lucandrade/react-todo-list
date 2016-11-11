@@ -37,6 +37,13 @@ class App extends Component {
     AppActions.toggleCompleted();
   }
 
+  handleAddTodo(todo) {
+    AppActions.addTodo({
+      text: todo,
+      completed: false
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -51,7 +58,8 @@ class App extends Component {
           <Todo
             list={this.state.todo}
             showCompleted={this.state.showCompleted}
-            onShowCompletedChange={this.handleShowCompletedChange.bind(this)} />
+            onShowCompletedChange={this.handleShowCompletedChange.bind(this)}
+            onAddTodo={this.handleAddTodo.bind(this)} />
         </div>
       </div>
     );

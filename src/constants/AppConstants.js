@@ -7,7 +7,8 @@ const firebase = {
 
 const actions = {
 	addTodo: 'ADD_TODO',
-	toggleCompleted: 'TOGGLE_COMPLETED'
+	toggleCompleted: 'TOGGLE_COMPLETED',
+	setStorage: 'SET_STORAGE'
 }
 
 export default {
