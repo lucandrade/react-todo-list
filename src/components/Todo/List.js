@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoItem from './Item';
 import TodoAdd from './Add';
+import TodoFooter from './Footer';
 
 export default class TodoList extends React.Component {
 	render() {
@@ -12,16 +13,15 @@ export default class TodoList extends React.Component {
 
 		return (
 			<ul className='todo-list'>
-				<li className='add'>
-					<TodoAdd onSubmit={this.props.onAddTodo} />
-				</li>
+				<TodoAdd onSubmit={this.props.onAddTodo} />
 				{filteredList.length > 0 ? filteredList.map((item, i) => {
 					return <TodoItem
 							key={i}
 							{...item}
 							onToggleCompleted={onToggleCompleted}
 							onRemoveTodo={onRemoveTodo} />;
-				}) : <TodoItem text='Nenhum item encontrado' completed={false} />}
+				}) : <TodoItem text='No tasks found' completed={false} />}
+				<TodoFooter list={filteredList} />
 			</ul>
 		);
 	}

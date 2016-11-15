@@ -182,3 +182,12 @@
     cursor: pointer;
     color: #999;
 }
+
+.todo-footer {
+    font-style: italic;
+    font-size: 1em;
+    padding: 6px 65px 6px 65px;
+    border-bottom: none;
+}
+
+.todo-footer b { font-size: 1.2em }
