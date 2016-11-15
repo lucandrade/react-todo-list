@@ -87,6 +87,16 @@ class App extends Component {
                             <div className="nav-left">
                                 <a href="#" className="nav-item is-brand">React Todo List</a>
                             </div>
+                            <div className="nav-right">
+                                <a
+                                    href="https://github.com/lucandrade/react-todo-list"
+                                    className="nav-item"
+                                    target="_blank">
+                                    <span className="icon">
+                                        <i className="fa fa-github"></i>
+                                    </span>
+                                </a>
+                            </div>
                         </nav>
                     </div>
                 </div>
