@@ -1,3 +1,7 @@
 # React Todo List
 
-Example of todo list as a React component
+###### by [Lucas Andrade](https://github.com/lucandrade)
+
+A simple Todo list app built with ReactJS
+
+run `npm install && npm start`
