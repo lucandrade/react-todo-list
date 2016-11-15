@@ -74,11 +74,11 @@
 }
 
 .todo-controls .input-search {
-    padding-left: 50px;
+    padding-left: 15px;
     padding-right: 30px;
 }
 
-.todo-list .input-add { padding-left: 35px }
+.todo-list .input-add { padding-left: 0px }
 
 .todo-list li input:focus,
 .todo-controls .input-search,
@@ -153,7 +153,7 @@
 
 .todo-list .icon-add {
     position: absolute;
-    left: 65px;
+    left: 15px;
     top: 16px;
 }
 
@@ -165,7 +165,7 @@
 
 .todo-controls .icon-search {
     position: absolute;
-    left: 65px;
+    left: 15px;
     top: 16px;
 }
 
