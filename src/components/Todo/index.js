@@ -15,7 +15,6 @@ export default class Index extends React.Component {
 					<TodoFilter onChange={this.props.onChangeFilter} />
 				</div>
 				<TodoList
-					onAddTodo={this.props.onAddTodo}
 					{...this.props} />
 			</div>
 		);

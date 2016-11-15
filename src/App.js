@@ -4,8 +4,8 @@ import Menu from './components/Menu';
 import Todo from './components/Todo';
 import AppStore from './stores/AppStore';
 import * as AppActions from './actions/AppActions';
-import 'font-awesome/css/font-awesome.css';
-import 'bulma/css/bulma.css';
+import '../node_modules/font-awesome/css/font-awesome.css';
+import '../node_modules/bulma/css/bulma.css';
 import './App.css';
 
 class App extends Component {
@@ -40,6 +40,10 @@ class App extends Component {
     }
 
     handleAddTodo(todo) {
+        if (!todo) {
+            return;
+        }
+        
         AppActions.addTodo({
             text: todo,
             completed: false

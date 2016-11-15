@@ -23,7 +23,9 @@ export default class TodoItem extends React.Component {
 				<a
 					onClick={this.handleToggleCompleted.bind(this, id)}
 					className={'toggle' + (completed ? ' active' : '')}></a>
-				<span className="todo-remove icon-delete fa fa-trash" />
+				<span
+					className="icon-delete fa fa-trash"
+					onClick={this.handleRemove.bind(this, id)} />
 			</div>
 		}
 
