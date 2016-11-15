@@ -4,7 +4,7 @@ import TodoItem from './Item';
 
 export default class TodoList extends React.Component {
 	render() {
-		const { list, showCompleted, onToggleCompleted } = this.props;
+		const { list, showCompleted, onToggleCompleted, onRemoveTodo } = this.props;
 		let filteredList = showCompleted ? list : list.filter((item) => {
 			return !item.completed
 		});
@@ -15,7 +15,8 @@ export default class TodoList extends React.Component {
 					return <TodoItem
 							key={i}
 							{...item}
-							onToggleCompleted={onToggleCompleted} />;
+							onToggleCompleted={onToggleCompleted}
+							onRemoveTodo={onRemoveTodo} />;
 				}) : <TodoItem text='Nenhum item encontrado' completed={false} />}
 			</ul>
 		);

@@ -68,6 +68,10 @@ class App extends Component {
         });
     }
 
+    handleRemoveTodo(id) {
+        AppActions.removeTodo(id);
+    }
+
     render() {
         return (
             <div className="App">
@@ -85,6 +89,7 @@ class App extends Component {
                         onShowCompletedChange={this.handleShowCompletedChange.bind(this)}
                         onToggleCompleted={this.handleToggleCompleted.bind(this)}
                         onChangeFilter={this.handleChangeFilter.bind(this)}
+                        onRemoveTodo={this.handleRemoveTodo.bind(this)}
                         onAddTodo={this.handleAddTodo.bind(this)} />
                 </div>
             </div>

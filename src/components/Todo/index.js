@@ -17,9 +17,7 @@ export default class Index extends React.Component {
 						onChange={this.props.onShowCompletedChange} />
 				</div>
 				<TodoList
-					list={this.props.list}
-					showCompleted={this.props.showCompleted}
-					onToggleCompleted={this.props.onToggleCompleted} />
+					{...this.props} />
 			</div>
 		);
 	}

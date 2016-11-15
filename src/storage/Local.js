@@ -26,6 +26,10 @@ class LocalStorage {
 		this.client.setItem(key, value);
 	}
 
+	forget(key) {
+		this.client.removeItem(key);
+	}
+
 	findById(listName, id) {
         const list = this.get(listName);
 
@@ -87,8 +91,27 @@ class LocalStorage {
         return false;
 	}
 
-	forget(key) {
-		this.client.removeItem(key);
+	remove(listName, id) {
+		let list = this.get(listName);
+		let pos = false;
+
+        if (list) {
+            list.map((item, i) => {
+				if (item.id === id) {
+					pos = i;
+				}
+				return item;
+            });
+
+			if (pos !== false) {
+				list.splice(pos, 1);
+			}
+
+			this.set(listName, list);
+			return true;
+        }
+
+        return false;
 	}
 }
 

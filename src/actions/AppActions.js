@@ -30,3 +30,10 @@ export function updateTodo(id, data) {
 		data
 	});
 }
+
+export function removeTodo(id) {
+	dispatcher.dispatch({
+		type: actions.removeTodo,
+		id
+	});
+}

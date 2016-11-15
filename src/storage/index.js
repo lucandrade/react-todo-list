@@ -32,6 +32,10 @@ class Storage {
     update(listName, id, data) {
         return this.client.update(listName, id, data);
     }
+
+    remove(listName, id) {
+        return this.client.remove(listName, id);
+    }
 }
 
 const storage = new Storage();

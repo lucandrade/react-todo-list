@@ -46,6 +46,11 @@ class AppStore extends EventEmitter {
         return Storage.findByText('todo', text);
     }
 
+    removeTodo(id) {
+        Storage.remove('todo', id);
+        this.emit('change');
+    }
+
     getShowCompleted() {
     	return this.showCompleted;
     }
@@ -75,6 +80,9 @@ class AppStore extends EventEmitter {
                 break;
             case actions.updateTodo:
                 this.updateTodo(action.id, action.data);
+                break;
+            case actions.removeTodo:
+                this.removeTodo(action.id);
                 break;
             default:
             	break;

@@ -10,7 +10,7 @@ export default class Filter extends React.Component {
 			<div className='todo-filter'>
                 <input
                     value={this.props.text}
-                    placeholder='Buscar'
+                    placeholder='Find'
                     onChange={this.handleChange.bind(this)} />
             </div>
 		);
