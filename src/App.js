@@ -43,7 +43,7 @@ class App extends Component {
         if (!todo) {
             return;
         }
-        
+
         AppActions.addTodo({
             text: todo,
             completed: false
@@ -95,7 +95,9 @@ class App extends Component {
                 </nav>
                 <div className="container is-fluid">
                     <div className="content has-text-centered">
-                        {this.props.children}
+                        <div className="storage-type">
+                            {this.props.children}
+                        </div>
                         <Todo
                             list={this.state.todo}
                             showCompleted={this.state.showCompleted}

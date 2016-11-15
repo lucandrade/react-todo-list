@@ -1,6 +1,12 @@
 import React from 'react';
 
+import * as AppActions from '../actions/AppActions';
+
 export default class FirebaseExample extends React.Component {
+	componentDidMount() {
+        AppActions.setStorage('local');
+    }
+	
 	render() {
 		return (
 			<div>
