@@ -16,7 +16,7 @@ export default class TodoList extends React.Component {
 							key={i}
 							{...item}
 							onToggleCompleted={onToggleCompleted} />;
-				}) : <TodoItem text='Nenhum item cadastrado' completed={false} />}
+				}) : <TodoItem text='Nenhum item encontrado' completed={false} />}
 			</ul>
 		);
 	}

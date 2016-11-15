@@ -42,6 +42,10 @@ class AppStore extends EventEmitter {
     	this.emit('change');
     }
 
+    filterTodoList(text) {
+        return Storage.findByText('todo', text);
+    }
+
     getShowCompleted() {
     	return this.showCompleted;
     }

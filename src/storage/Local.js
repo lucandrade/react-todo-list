@@ -42,6 +42,18 @@ class LocalStorage {
         return false;
     }
 
+	findByText(listName, text) {
+        const list = this.get(listName);
+
+        if (list) {
+            return list.filter((item) => {
+                return item.text.indexOf(text) >= 0;
+            });
+        }
+
+        return false;
+    }
+
 	add(listName, value) {
 		let list = this.get(listName);
 

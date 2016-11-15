@@ -54,6 +54,20 @@ class App extends Component {
         }
     }
 
+    handleChangeFilter(text) {
+        let todo;
+
+        if (text) {
+            todo = AppStore.filterTodoList(text);
+        } else {
+            todo = AppStore.getTodoList();
+        }
+
+        this.setState({
+            todo
+        });
+    }
+
     render() {
         return (
             <div className="App">
@@ -70,6 +84,7 @@ class App extends Component {
                         showCompleted={this.state.showCompleted}
                         onShowCompletedChange={this.handleShowCompletedChange.bind(this)}
                         onToggleCompleted={this.handleToggleCompleted.bind(this)}
+                        onChangeFilter={this.handleChangeFilter.bind(this)}
                         onAddTodo={this.handleAddTodo.bind(this)} />
                 </div>
             </div>

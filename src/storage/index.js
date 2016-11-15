@@ -25,6 +25,10 @@ class Storage {
         return this.client.findById(listName, id);
     }
 
+    findByText(listName, text) {
+        return this.client.findByText(listName, text);
+    }
+
     update(listName, id, data) {
         return this.client.update(listName, id, data);
     }
