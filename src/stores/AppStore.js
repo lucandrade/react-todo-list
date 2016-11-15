@@ -20,12 +20,21 @@ class AppStore extends EventEmitter {
 
     addTodo(todo) {
     	this.todoList.push(todo);
-        Storage.set('todo', this.todoList);
+        Storage.add('todo', todo);
     	this.emit('change');
     }
 
+    getTodo(id) {
+        return Storage.findById('todo', id);
+    }
+
+    updateTodo(id, data) {
+        Storage.update('todo', id, data);
+        this.emit('change');
+    }
+
     getTodoList() {
-    	return this.todoList;
+    	return Storage.get('todo') || [];
     }
 
     toggleCompleted() {

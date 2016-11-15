@@ -7,63 +7,74 @@ import * as AppActions from './actions/AppActions';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.initialState = this.initialState.bind(this);
-    this.updateState = this.updateState.bind(this);
-    this.state = this.initialState();
-  }
-
-  initialState() {
-    return {
-      todo: AppStore.getTodoList(),
-      showCompleted: AppStore.getShowCompleted()
+    constructor(props) {
+        super(props);
+        this.initialState = this.initialState.bind(this);
+        this.updateState = this.updateState.bind(this);
+        this.state = this.initialState();
     }
-  }
 
-  updateState() {
-    this.setState(this.initialState());
-  }
+    initialState() {
+        return {
+            todo: AppStore.getTodoList(),
+            showCompleted: AppStore.getShowCompleted()
+        }
+    }
 
-  componentDidMount() {
-    AppStore.on('change', this.updateState);
-  }
+    updateState() {
+        this.setState(this.initialState());
+    }
 
-  componentWillUnmount() {
-    AppStore.removeListener('change', this.updateState);
-  }
+    componentDidMount() {
+        AppStore.on('change', this.updateState);
+    }
 
-  handleShowCompletedChange() {
-    AppActions.toggleCompleted();
-  }
+    componentWillUnmount() {
+        AppStore.removeListener('change', this.updateState);
+    }
 
-  handleAddTodo(todo) {
-    AppActions.addTodo({
-      text: todo,
-      completed: false
-    });
-  }
+    handleShowCompletedChange() {
+        AppActions.toggleCompleted();
+    }
 
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>React Todo List</h2>
-          <div className="App-intro">
-            <Menu />
-          </div>
-        </div>
-        <div className="container">
-          {this.props.children}
-          <Todo
-            list={this.state.todo}
-            showCompleted={this.state.showCompleted}
-            onShowCompletedChange={this.handleShowCompletedChange.bind(this)}
-            onAddTodo={this.handleAddTodo.bind(this)} />
-        </div>
-      </div>
-    );
-  }
+    handleAddTodo(todo) {
+        AppActions.addTodo({
+            text: todo,
+            completed: false
+        });
+    }
+
+    handleToggleCompleted(id) {
+        const item = AppStore.getTodo(id);
+
+        if (item) {
+            AppStore.updateTodo(id, {
+                completed: !item.completed
+            });
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <div className="App-header">
+                    <h2>React Todo List</h2>
+                    <div className="App-intro">
+                        <Menu />
+                    </div>
+                </div>
+                <div className="container">
+                    {this.props.children}
+                    <Todo
+                        list={this.state.todo}
+                        showCompleted={this.state.showCompleted}
+                        onShowCompletedChange={this.handleShowCompletedChange.bind(this)}
+                        onToggleCompleted={this.handleToggleCompleted.bind(this)}
+                        onAddTodo={this.handleAddTodo.bind(this)} />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;

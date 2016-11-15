@@ -1,3 +1,5 @@
+import uuid from 'uuid';
+
 class LocalStorage {
 	constructor() {
 		if (!window.localStorage) {
@@ -24,19 +26,59 @@ class LocalStorage {
 		this.client.setItem(key, value);
 	}
 
+	findById(listName, id) {
+        const list = this.get(listName);
+
+        if (list) {
+            const find = list.filter((item) => {
+                return item.id === id;
+            });
+
+            if (find.length > 0) {
+                return find[0];
+            }
+        }
+
+        return false;
+    }
+
+	add(listName, value) {
+		let list = this.get(listName);
+
+		if (!(list instanceof Array)) {
+			list = [];
+		}
+
+		if (typeof value === 'object') {
+			value.id = uuid.v1();
+		}
+
+		list.push(value);
+		this.set(listName, list);
+	}
+
+	update(listName, id, data) {
+		const list = this.get(listName);
+
+        if (list) {
+            list.map((item) => {
+                if (item.id === id) {
+					Object.assign(item, data);
+				}
+				return item;
+            });
+
+			this.set(listName, list);
+			return true;
+        }
+
+        return false;
+	}
+
 	forget(key) {
 		this.client.removeItem(key);
 	}
 }
-
-// LocalStorage.prototype.get = (key) => {
-// 	let value = this.getItem(key);
-// 	try {
-// 		return JSON.parse(value);
-// 	} catch (e) {
-// 		return value;
-// 	}
-// }
 
 const storage = new LocalStorage();
 

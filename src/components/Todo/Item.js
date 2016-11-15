@@ -1,10 +1,14 @@
 import React from 'react';
 
 export default class TodoItem extends React.Component {
+	handleToggleCompleted(id) {
+		this.props.onToggleCompleted(id);
+	}
+
 	render() {
-		const { text, completed } = this.props;
+		const { text, completed, id } = this.props;
 		let classes = ['todo-item'];
-		
+
 		if (completed) {
 			classes.push('completed');
 		}
@@ -12,7 +16,10 @@ export default class TodoItem extends React.Component {
 		return (
 			<li className={classes.join(' ')}>
 				{text}
-				<input type='checkbox' checked={completed} />
+				{id ? <input
+						onChange={this.handleToggleCompleted.bind(this, id)}
+						type='checkbox'
+						checked={completed} /> : ''}
 			</li>
 		);
 	}

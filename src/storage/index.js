@@ -14,7 +14,19 @@ class Storage {
     }
 
     set(key, value) {
-        this.client.set(key, value);
+        return this.client.set(key, value);
+    }
+
+    add(listName, value) {
+        return this.client.add(listName, value);
+    }
+
+    findById(listName, id) {
+        return this.client.findById(listName, id);
+    }
+
+    update(listName, id, data) {
+        return this.client.update(listName, id, data);
     }
 }
 
