@@ -48,7 +48,7 @@ class App extends Component {
         const item = AppStore.getTodo(id);
 
         if (item) {
-            AppStore.updateTodo(id, {
+            AppActions.updateTodo(id, {
                 completed: !item.completed
             });
         }

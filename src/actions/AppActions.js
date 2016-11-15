@@ -22,3 +22,11 @@ export function setStorage(storage) {
 		storage
 	});
 }
+
+export function updateTodo(id, data) {
+	dispatcher.dispatch({
+		type: actions.updateTodo,
+		id,
+		data
+	});
+}

@@ -73,6 +73,9 @@ class AppStore extends EventEmitter {
             case actions.setStorage:
                 this.setStorage(action.storage);
                 break;
+            case actions.updateTodo:
+                this.updateTodo(action.id, action.data);
+                break;
             default:
             	break;
         }
