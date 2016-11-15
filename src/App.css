@@ -62,7 +62,8 @@
 }
 
 .todo-list li input,
-.todo-controls .input-search {
+.todo-controls .input-search,
+.todo-list .input-add {
     border: none;
     line-height: 25px;
     width: 100%;
@@ -77,8 +78,11 @@
     padding-right: 30px;
 }
 
+.todo-list .input-add { padding-left: 35px }
+
 .todo-list li input:focus,
-.todo-controls .input-search {
+.todo-controls .input-search,
+.todo-list .input-add {
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -144,6 +148,12 @@
 .todo-controls .icon-delete {
     position: absolute;
     left: 15px;
+    top: 16px;
+}
+
+.todo-list .icon-add {
+    position: absolute;
+    left: 65px;
     top: 16px;
 }
 

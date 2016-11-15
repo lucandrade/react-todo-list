@@ -11,8 +11,9 @@ export default class TodoAdd extends React.Component {
 	render() {
 		return (
 			<li className='add'>
+				<span className="icon-add fa fa-plus" />
 				<form action='' onSubmit={this.handleSubmit.bind(this)}>
-					<input placeholder='Add' id='todo-input' />
+					<input placeholder='Add' id='todo-input' className='input-add' />
 				</form>
 			</li>
 		);
