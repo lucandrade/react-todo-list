@@ -6,13 +6,16 @@ export default class ShowCompleted extends React.Component {
 	}
 
 	render() {
+		const classes = ['icon-setup', 'fa'];
+
+		if (this.props.checked) {
+			classes.push('fa-eye-slash');
+		} else {
+			classes.push('fa-eye');
+		}
+
 		return (
-			<div className='todo-filter'>
-				<input
-					type='checkbox'
-					checked={this.props.checked}
-					onChange={this.handleChange.bind(this)} /> Show completed
-			</div>
+			<span className={classes.join(' ')} onClick={this.handleChange.bind(this)} title='Show completed tasks' />
 		);
 	}
 }

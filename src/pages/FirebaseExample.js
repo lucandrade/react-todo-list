@@ -4,7 +4,7 @@ export default class FirebaseExample extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2>Firebase</h2>
+				<h1 className='title'>Firebase</h1>
 			</div>
 		);
 	}

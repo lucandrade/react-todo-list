@@ -48,10 +48,11 @@ class LocalStorage {
 
 	findByText(listName, text) {
         const list = this.get(listName);
+		text = text ? text.toLowerCase() : '';
 
         if (list) {
             return list.filter((item) => {
-                return item.text.indexOf(text) >= 0;
+                return item.text.toLowerCase().indexOf(text) >= 0;
             });
         }
 

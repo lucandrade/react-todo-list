@@ -11,20 +11,19 @@ export default class TodoItem extends React.Component {
 
 	render() {
 		const { text, completed, id } = this.props;
-		let classes = ['todo-item'];
+		let classes = [''];
 		let options = '';
 
 		if (completed) {
-			classes.push('completed');
+			classes.push('done');
 		}
 
 		if (id) {
 			options = <div className="todo-item-options">
-				<input
-					onChange={this.handleToggleCompleted.bind(this, id)}
-					type='checkbox'
-					checked={completed} />
-				<span className="todo-remove" onClick={this.handleRemove.bind(this, id)}>X</span>
+				<a
+					onClick={this.handleToggleCompleted.bind(this, id)}
+					className={'toggle' + (completed ? ' active' : '')}></a>
+				<span className="todo-remove icon-delete fa fa-trash" />
 			</div>
 		}
 

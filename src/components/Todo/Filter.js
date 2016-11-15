@@ -7,12 +7,15 @@ export default class Filter extends React.Component {
 
 	render() {
 		return (
-			<div className='todo-filter'>
-                <input
-                    value={this.props.text}
-                    placeholder='Find'
-                    onChange={this.handleChange.bind(this)} />
-            </div>
+			<div>
+				<span className="icon-search fa fa-search" />
+				<input
+					value={this.props.text}
+					onChange={this.handleChange.bind(this)}
+					placeholder='Search'
+					id='todo-search'
+					className='input-search' />
+			</div>
 		);
 	}
 }

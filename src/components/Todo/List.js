@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoItem from './Item';
+import TodoAdd from './Add';
 
 export default class TodoList extends React.Component {
 	render() {
@@ -11,6 +12,9 @@ export default class TodoList extends React.Component {
 
 		return (
 			<ul className='todo-list'>
+				<li className='add'>
+					<TodoAdd onSubmit={this.props.onAddTodo} />
+				</li>
 				{filteredList.length > 0 ? filteredList.map((item, i) => {
 					return <TodoItem
 							key={i}
